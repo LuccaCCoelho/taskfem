@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    text-shadow: 2px 2px 4px rgba(255,105,180,0.1);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 2px 2px 8px rgba(255,105,180,0.3);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+button {
+  background: linear-gradient(135deg, #FF69B4 0%, #DA70D6 100%);
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 60%);
+    opacity: 0;
+    transform: scale(0.1);
+    animation: ripple 2.5s ease-out infinite;
+  }
+  transition: all 0.3s ease !important;
+  border-radius: 20px !important;
+}
+
+button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(255,105,180,0.3), 0 4px 10px rgba(255,105,180,0.2) !important;
+  background: linear-gradient(135deg, #DA70D6 0%, #C71585 100%);
+}
+
+button:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 4px 12px rgba(255,105,180,0.2), 0 2px 6px rgba(255,105,180,0.15) !important;
+}
+
+.App form button[type='submit']:hover {
+  background: linear-gradient(135deg, #DA70D6 0%, #C71585 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255,105,180,0.3), 0 4px 10px rgba(255,105,180,0.2);
+}
+
+.App form button[type='submit']:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(255,105,180,0.2), 0 2px 6px rgba(255,105,180,0.15);
+}
+
+input, select {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+input:focus, select:focus {
+  border-color: #FF69B4 !important;
+  box-shadow: 0 0 0 3px rgba(255,105,180,0.2) !important;
+}
+
+.App form button[type='submit'] {
+  background: linear-gradient(135deg, #FF69B4 0%, #DA70D6 100%);
+}
+
+.App form button[type='submit']:hover {
+  background: linear-gradient(135deg, #DA70D6 0%, #C71585 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255,105,180,0.3);
+}
+
+.App form button[type='submit']:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .App form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .App form input {
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+
+  .App form select {
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+
+  .App form button[type='submit'] {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    padding: 10px !important;
+  }
+
+  .App > div {
+    padding: 20px !important;
+  }
+
+  h1 {
+    font-size: 2em !important;
+  }
+}
